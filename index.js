@@ -18,15 +18,9 @@ module.exports = function (ts, _ts) {
 
   function part(p, q) {
     var u = ~~((p ? diff%units[p] : diff)/units[q])
-    if(u === 0) return ''
+    if(u === 0 || ++parts > 2) return ''
     return u+q
   }
-  //return part('y')+part('d')+part('h')+part('m')+part('s')
   return part(null, 'y') + part('y', 'd') + part('d', 'h') + part('h', 'm') + part('m', 's') || '0s'
-
 }
-
-
-
-
 
